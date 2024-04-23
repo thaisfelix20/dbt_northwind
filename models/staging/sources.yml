@@ -28,6 +28,10 @@ sources:
         columns:
           - name: customer_id
             description: ID do cliente
+            tests:
+              - relationships:
+                  field: customer_id
+                  to: ref('stg_customers')
           - name: company_name
             description: Nome da empresa do cliente
           - name: contact_name

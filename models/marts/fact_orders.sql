@@ -31,7 +31,7 @@ with
             , dim_suppliers.sk_suppliers
             , dim_products.product_name
             , dim_categories.category_name
-            , dim_suppliers.contact_name as contato
+            , dim_suppliers.contact_name
             , orders.*
             , order_details.unit_price
             , order_details.quantity
@@ -43,6 +43,12 @@ with
         left join dim_categories on dim_products.category_id = dim_categories.category_id
         left join dim_suppliers on dim_products.supplier_id = dim_suppliers.supplier_id
     )
+    , creatingSK as (
+        select 
+            {{ dbt_utils.generate_surrogate_key(['order_id','product_name']) }} as sk_orders
+            , *
+        from juncao
+    )
 select *
-from juncao
+from creatingSK
 --dim_products, dim_supplies, dim_categories e order_details

@@ -1,0 +1,21 @@
+version: 2
+models:
+  - name: dim_customers
+    description: Dimensão de categorias dos produtos.
+    columns: 
+      - name: sk_customer
+        description: The surrogate key of the customer id
+        tests:
+          - not_null
+          - unique    
+      - name: customer_id
+        description: ID do cliente
+        tests:
+          - not_null
+          - unique    
+      - name: company_name
+        description: Nome da empresa do cliente
+      - name: contact_name
+        description: Nome do contato
+      - name: country
+        description: País do cliente
