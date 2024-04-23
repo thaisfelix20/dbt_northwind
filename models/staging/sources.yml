@@ -2,20 +2,157 @@ version: 2
 
 sources:
   - name: northwind
+    description: Data from Northwind ERP
     database: curso-etl-101  
     schema: erp_northwind  
     tables:
       - name: orders
+        description: Tabela que armazena informações sobre os pedidos feitos pelos clientes.
+        columns:
+          - name: order_id
+            description: ID do pedido
+          - name: customer_id
+            description: ID do cliente
+          - name: employee_id
+            description: ID do funcionário que processou o pedido
+          - name: order_date
+            description: Data do pedido
+          - name: ship_country
+            description: Nome do país que foi realizado o pedido
+          - name: ship_city
+            description: Nome da cidade que foi realizado o pedido
+          - name: freight
+            description: Valor do frete do pedido
       - name: customers
+        description: Tabela que contém informações sobre os clientes.
+        columns:
+          - name: customer_id
+            description: ID do cliente
+          - name: company_name
+            description: Nome da empresa do cliente
+          - name: contact_name
+            description: Nome do contato
+          - name: country
+            description: País do cliente
+
       - name: order_details
+        description: Tabela que guarda os detalhes de cada item em um pedido.
+        columns:
+          - name: order_id
+            description: ID do pedido
+          - name: product_id
+            description: ID do produto
+          - name: unit_price
+            description: Preço unitário do produto
+          - name: quantity
+            description: Quantidade do produto
+
       - name: categories
+        description: Tabela que contém informações sobre as categorias de produtos.
+        columns:
+          - name: category_id
+            description: ID da categoria
+          - name: category_name
+            description: Nome da categoria
+          - name: description
+            description: Descrição da categoria
+
       - name: products
+        description: Tabela que armazena informações sobre os produtos disponíveis.
+        columns:
+          - name: product_id
+            description: ID do produto
+          - name: product_name
+            description: Nome do produto
+          - name: supplier_id
+            description: ID do fornecedor
+          - name: category_id
+            description: ID da categoria do produto
+          - name: unit_price
+            description: Valor unitário do produto
+
       - name: employees      
+        description: Tabela que armazena informações sobre os funcionários.
+        columns:
+          - name: employee_id
+            description: ID do funcionário
+          - name: last_name
+            description: Sobrenome do funcionário
+          - name: first_name
+            description: Primeiro nome do funcionário
+          - name: title
+            description: Título do funcionário
+
       - name: customer_customer_demo
+        description: Tabela que relaciona clientes com suas informações demográficas.
+        columns:
+          - name: customer_id
+            description: ID do cliente
+          - name: customer_type_id
+            description: ID do tipo de cliente
+
       - name: customer_demographics
+        description: Tabela que armazena informações demográficas dos clientes.
+        columns:
+          - name: customer_type_id
+            description: ID do tipo de cliente
+          - name: customer_desc
+            description: Descrição do tipo de cliente
+
       - name: employee_territories  
+        description: Tabela que relaciona funcionários com territórios.
+        columns:
+          - name: employee_id
+            description: ID do funcionário
+          - name: territory_id
+            description: ID do território
+
       - name: region
+        description: Tabela que contém informações sobre as regiões geográficas.
+        columns:
+          - name: region_id
+            description: ID da região
+          - name: region_description
+            description: Descrição da região
+
       - name: shippers
+        description: Tabela que armazena informações sobre as empresas de transporte.
+        columns:
+          - name: shipper_id
+            description: ID do transportador
+          - name: company_name
+            description: Nome da empresa de transporte
+          - name: phone
+            description: Número de telefone da empresa de transporte
+
       - name: suppliers    
+        description: Tabela que contém informações sobre os fornecedores.
+        columns:
+          - name: supplier_id
+            description: ID do fornecedor
+          - name: company_name
+            description: Nome da empresa do fornecedor
+          - name: contact_name
+            description: Nome do contato do fornecedor
+          - name: country
+            description: País do fornecedor
+
       - name: territories
+        description: Tabela que contém informações sobre os territórios.
+        columns:
+          - name: territory_id
+            description: ID do território
+          - name: territory_description
+            description: Descrição do território
+          - name: region_id
+            description: Código da região
+
       - name: us_states    
+        description: Tabela que contém informações sobre os estados dos EUA.
+        columns:
+          - name: state_id
+            description: ID do estado
+          - name: state_name
+            description: Nome do estado
+          - name: state_abbr
+            description: Abreviação do estado
