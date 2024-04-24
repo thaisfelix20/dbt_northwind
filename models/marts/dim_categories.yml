@@ -1,0 +1,19 @@
+version: 2
+models:
+  - name: dim_categories
+    description: Dimensão de categorias dos produtos.
+    columns: 
+      - name: sk_categories
+        description: The surrogate key of the creditcard id
+        tests:
+          - not_null
+          - unique    
+      - name: category_id
+        description: ID da categoria
+        tests:
+          - not_null
+          - unique    
+      - name: category_name
+        description: Nome da categoria
+      - name: description
+        description: Descrição da categoria          

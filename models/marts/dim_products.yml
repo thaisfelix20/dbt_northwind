@@ -1,0 +1,23 @@
+version: 2
+models:
+  - name: dim_products
+    description: Dimensão de dos produtos.
+    columns: 
+      - name: sk_products
+        description: The surrogate key of the products id
+        tests:
+          - not_null
+          - unique    
+      - name: product_id
+        description: ID do produto
+        tests:
+          - not_null
+          - unique    
+      - name: product_name
+        description: Nome do produto
+      - name: supplier_id
+        description: ID do fornecedor
+      - name: category_id
+        description: ID da categoria do produto
+      - name: unit_price
+        description: Valor unitário do produto
